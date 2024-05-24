@@ -1,0 +1,19 @@
+<h1>Incendiar</h1>
+
+<h2>Product List</h2>
+<% @products.each do |p| %>
+  <p>
+    <strong>Nome:</strong>
+    <%= p.name %>
+  </p>
+  <p>
+    <strong>Preço: </strong>
+    R$ <%= number_with_precision(p.price, precision: 2) %>
+  </p>
+  <%# <%= button_to 'Add to Cart', add_to_cart, class: 'btn-action' %>
+  <%= button_to 'Add to Cart', class: 'btn-action' %>
+<% end %>
+
+<% if @products.empty? %>
+  <p>Nenhum produto cadastrado</p>
+<% end %>
