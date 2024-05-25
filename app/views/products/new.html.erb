@@ -1,6 +1,6 @@
 <h1>Cadastro de Novo Produto</h1>
 
-<%= form_with(model: Product.new) do |form| %>
+<%= form_with(model: @product) do |form| %>
   <%= form.label :name, 'Nome' %>
   <%= form.text_field :name %>
 

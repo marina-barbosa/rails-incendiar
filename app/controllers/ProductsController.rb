@@ -8,12 +8,17 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
     product_params = params.require(:product).permit(:name, :price, :description, :stock, :image)
-    p = Product.new(product_params)
-    p.save!()
-    redirect_to root_path, notice: "Produto cadastrado com sucesso!"
+    @product = Product.new(product_params)
+    if @product.save()
+      redirect_to root_path, notice: "Produto cadastrado com sucesso!"
+    else
+      flash.now[:notice] = "Produto não cadastrado!"
+      render "new"
+    end
   end
 end
