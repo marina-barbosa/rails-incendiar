@@ -5,7 +5,7 @@ require "rails"
 require "active_model/railtie"
 # require "active_job/railtie"
 require "active_record/railtie"
-# require "active_storage/engine"
+require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 # require "action_mailbox/engine"
@@ -42,8 +42,8 @@ module RailsIncendiar
     # Configuração do CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'  # Aqui você pode especificar quais origens são permitidas, por exemplo, 'http://127.0.0.1:5500'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+        origins "*"  # Aqui você pode especificar quais origens são permitidas, por exemplo, 'http://127.0.0.1:5500'
+        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
       end
     end
   end

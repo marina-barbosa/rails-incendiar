@@ -13,5 +13,8 @@
   <%= form.label :stock, 'Estoque' %>
   <%= form.number_field :stock, min: 0, step: 1 %>
 
+  <%= form.label :image, 'Imagem' %>
+  <%= form.file_field :image %>
+
   <%= form.submit 'Salvar' %>
 <% end %>

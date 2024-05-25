@@ -1,6 +1,11 @@
 <h1>Product Detail</h1>
 
 <p><%= @product.name %></p>
+<% if @product.image.attached? %>
+  <p>
+    <%= image_tag url_for(@product.image), width: 250, height: 250 %>
+  </p>
+<% end %>
 <p>R$ <%= number_with_precision(@product.price, precision: 2) %></p>
 <p><%= @product.description %></p>
 <p><%= @product.stock %> unidades disponíveis</p>

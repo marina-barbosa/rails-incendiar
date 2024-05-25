@@ -11,9 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product_params = params.require(:product).permit(:name, :price, :description, :stock)
+    product_params = params.require(:product).permit(:name, :price, :description, :stock, :image)
     p = Product.new(product_params)
     p.save!()
-    redirect_to root_path, notice: 'Produto cadastrado com sucesso!'
+    redirect_to root_path, notice: "Produto cadastrado com sucesso!"
   end
 end

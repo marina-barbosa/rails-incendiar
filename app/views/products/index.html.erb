@@ -7,6 +7,11 @@
 
   <% @products.each do |p| %>
     <div class="card">
+      <% if p.image.attached? %>
+        <p>
+          <%= image_tag url_for(p.image), width: 250, height: 250 %>
+        </p>
+      <% end %>
       <p><%= link_to p.name, product_path(p.id) %></p>
       <p>R$ <%= number_with_precision(p.price, precision: 2) %></p>
       <%# <%= button_to 'Add to Cart', add_to_cart, class: 'btn-action' %>
