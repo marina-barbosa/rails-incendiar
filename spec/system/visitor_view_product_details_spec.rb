@@ -4,8 +4,8 @@ describe 'Usuário vê detalhes de um produto' do
   before do
     Product.create!(
       name: 'Isqueiro Jet Flame',
-      description: 'Isqueiro com chama jet, ideal para acender charutos e uso em ambientes externos.',
       price: 80.00,
+      description: 'Isqueiro com chama jet, ideal para acender charutos e uso em ambientes externos.',
       stock: 50,
     )
   end
