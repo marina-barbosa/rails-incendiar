@@ -15,11 +15,13 @@ describe 'Usuário visita tela inicial' do
       name: 'Isqueiro Clássico Zippo',
       description: 'Isqueiro à prova de vento com garantia vitalícia. Modelo clássico da Zippo.',
       price: 150.00,
+      stock: 30,
     )
     Product.create!(
       name: 'Isqueiro Jet Flame',
       description: 'Isqueiro com chama jet, ideal para acender charutos e uso em ambientes externos.',
       price: 80.00,
+      stock: 50,
     )
     # Act
     visit root_path
