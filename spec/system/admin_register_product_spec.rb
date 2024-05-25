@@ -37,4 +37,23 @@ describe "Admin cadastra um produto" do
     expect(page).to have_content "80.00"
     expect(page).to have_css('img[src*="isqueiro-macarico.webp"]')
   end
+
+  it "com dados incompletos" do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on "Cadastrar Produto"
+
+    fill_in "Nome", with: ""
+    fill_in "Preço", with: ""
+    fill_in "Descrição", with: "Isqueiro com chama jet, ideal para acender charutos e uso em ambientes externos."
+    fill_in "Estoque", with: ""
+    attach_file "Imagem", Rails.root.join("spec", "support", "isqueiro-macarico.webp")
+
+    click_on "Salvar"
+    # Assert
+    expect(page).to have_content "Produto não cadastrado!"
+    expect(page).not_to have_content "Produto cadastrado com sucesso!"
+  end
 end
