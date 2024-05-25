@@ -1,0 +1,17 @@
+<h1>Cadastro de Novo Produto</h1>
+
+<%= form_with(model: Product.new) do |form| %>
+  <%= form.label :name, 'Nome' %>
+  <%= form.text_field :name %>
+
+  <%= form.label :price, 'Preço' %>
+  <%= form.number_field :price, step: '0.01' %>
+
+  <%= form.label :description, 'Descrição' %>
+  <%= form.text_area :description %>
+
+  <%= form.label :stock, 'Estoque' %>
+  <%= form.number_field :stock, min: 0, step: 1 %>
+
+  <%= form.submit 'Salvar' %>
+<% end %>

@@ -1,6 +1,10 @@
 <section class="product-index">
   <h2>Product List</h2>
 
+  <div>
+    <%= link_to 'Cadastrar Produto', new_product_path %>
+  </div>
+
   <% @products.each do |p| %>
     <div class="card">
       <p><%= link_to p.name, product_path(p.id) %></p>
