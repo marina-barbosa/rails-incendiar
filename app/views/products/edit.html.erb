@@ -1,0 +1,28 @@
+<h1>Editar Produto</h1>
+
+<% if @product.errors.any? %>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @product) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price, value: @product.price.nil? ? '0.00' : '%.2f' % @product.price, step: '0.01' %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :stock %>
+  <%= form.number_field :stock, min: 0, step: 1 %>
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <%= form.submit 'Salvar' %>
+<% end %>

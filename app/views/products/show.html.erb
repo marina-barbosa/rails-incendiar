@@ -11,4 +11,5 @@
 <p><%= @product.stock %> unidades disponíveis</p>
 <%= button_to 'Add to Cart', class: 'btn-action-func' %>
 <%= link_to 'Check Out', class: 'btn-action-link' %>
+<%= link_to 'Editar', edit_product_path(@product.id) %>
 <%= link_to 'Voltar', root_path %>

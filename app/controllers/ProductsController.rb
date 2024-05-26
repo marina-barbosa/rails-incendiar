@@ -21,4 +21,22 @@ class ProductsController < ApplicationController
       render "new"
     end
   end
+
+  def edit
+    id = params[:id]
+    @product = Product.find(id)
+  end
+
+  def update
+    id = params[:id]
+    @product = Product.find(id)
+    product_params = params.require(:product).permit(:name, :price, :description, :stock, :image)
+
+    if @product.update(product_params)
+      redirect_to product_path(@product.id), notice: "Produto alterado com sucesso!"
+    else
+      flash[:notice] = "Não foi possível atualizar o produto"
+      render "edit"
+    end
+  end
 end
