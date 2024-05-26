@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update]
+
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -23,13 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @product = Product.find(id)
   end
 
   def update
-    id = params[:id]
-    @product = Product.find(id)
     product_params = params.require(:product).permit(:name, :price, :description, :stock, :image)
 
     if @product.update(product_params)
@@ -38,5 +35,11 @@ class ProductsController < ApplicationController
       flash[:notice] = "Não foi possível atualizar o produto"
       render "edit"
     end
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
