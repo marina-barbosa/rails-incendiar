@@ -12,4 +12,5 @@
 <%= button_to 'Add to Cart', class: 'btn-action-func' %>
 <%= link_to 'Check Out', class: 'btn-action-link' %>
 <%= link_to 'Editar', edit_product_path(@product.id) %>
+<%= button_to 'Remover', product_path(@product.id), method: :delete %>
 <%= link_to 'Voltar', root_path %>

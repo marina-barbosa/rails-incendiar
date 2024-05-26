@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -32,6 +32,14 @@ class ProductsController < ApplicationController
     else
       flash[:notice] = "Não foi possível atualizar o produto"
       render "edit"
+    end
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path, notice: "Produto removido com sucesso!"
+    else
+      redirect_to product_path(@product.id), notice: "Produto não pode ser removido!"
     end
   end
 
