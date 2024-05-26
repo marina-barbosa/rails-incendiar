@@ -5,8 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @product = Product.new
@@ -23,8 +22,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     product_params = params.require(:product).permit(:name, :price, :description, :stock, :image)
