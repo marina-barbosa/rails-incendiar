@@ -28,11 +28,11 @@ describe "Usuário visita tela inicial" do
     visit root_path
     # Assert
     expect(page).to have_content("Isqueiro Clássico Zippo")
-    expect(page).to have_content("R$ 150.00")
+    expect(page).to have_content("R$ 150,00")
 
     expect(page).to have_css('img[src*="isqueiro-macarico.webp"]')
     expect(page).to have_content("Isqueiro Jet Flame")
-    expect(page).to have_content("R$ 80.00")
+    expect(page).to have_content("R$ 80,00")
 
     expect(page).to have_button("Add to Cart")
     expect(page).not_to have_content("Nenhum produto cadastrado")

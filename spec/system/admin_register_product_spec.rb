@@ -34,7 +34,7 @@ describe "Admin cadastra um produto" do
     expect(current_path).to eq root_path
     expect(page).to have_content "Produto cadastrado com sucesso!"
     expect(page).to have_content "Isqueiro Jet Flame"
-    expect(page).to have_content "80.00"
+    expect(page).to have_content "80,00"
     expect(page).to have_css('img[src*="isqueiro-macarico.webp"]')
   end
 
@@ -54,6 +54,9 @@ describe "Admin cadastra um produto" do
     click_on "Salvar"
     # Assert
     expect(page).to have_content "Produto não cadastrado!"
+    expect(page).to have_content "Nome não pode ficar em branco"
+    expect(page).to have_content "Preço não pode ficar em branco"
+    expect(page).to have_content "Estoque não pode ficar em branco"
     expect(page).not_to have_content "Produto cadastrado com sucesso!"
   end
 end

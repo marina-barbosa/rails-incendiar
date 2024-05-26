@@ -20,7 +20,7 @@ describe "Usuário vê detalhes de um produto" do
     # Assert
     expect(page).to have_css('img[src*="isqueiro-macarico.webp"]')
     expect(page).to have_content("Isqueiro Jet Flame")
-    expect(page).to have_content("R$ 80.00")
+    expect(page).to have_content("R$ 80,00")
     expect(page).to have_content("Isqueiro com chama jet, ideal para acender charutos e uso em ambientes externos.")
     expect(page).to have_content("50")
     expect(page).to have_content("unidades disponíveis")
