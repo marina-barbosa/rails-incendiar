@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       product: Produto
+      user: Usuário
     attributes:
       product:
         name: "Nome"
@@ -9,4 +10,7 @@ pt-BR:
         stock: "Estoque"
         description: "Descrição"
         image: "Imagem"
+      user:
+        phone: "Telefone"
+        name: "Nome"
 

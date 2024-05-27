@@ -1,5 +1,14 @@
-# Cria Produtos
+# Cria conta admin
+User.create!(
+  email: "admin@email.com",
+  password: "123456",
+  name: "Hortencia",
+  cpf: "12345678900",
+  phone: "13900009999",
+  role: "customer",
+)
 
+# Cria Produtos
 produto = Product.create!(
   name: "Isqueiro Plasma Duplo Arco",
   description: "Isqueiro de plasma com duplo arco elétrico. Recarregável via USB, seguro e inovador.",

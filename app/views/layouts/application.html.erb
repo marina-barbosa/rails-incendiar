@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'fogo.png' %>
     <%= stylesheet_link_tag "application" %>
   </head>
 
   <body>
     <header>
-      <h1>Incendiar</h1>
+      <nav>
+        <ul>
+          <li>
+            <%= link_to root_path do %>
+              <h1>Incendiar</h1>
+            <% end %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= current_user.email %>
+            <% end %>
+          </li>
+          <li>Pesquisar</li>
+          <li>
+            <% if user_signed_in? %>
+              <%= button_to "Sair", destroy_user_session_path, class: "btn-gradient", method: :delete %>
+            <% else %>
+              <%= link_to "Entrar", new_user_session_path %>
+            <% end %>
+          </li>
+          <li><%= link_to "Criar uma conta", new_user_registration_path %></li>
+        </ul>
+      </nav>
     </header>
     <main>
       <div>

@@ -1,5 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Exo 2", sans-serif;
+  list-style: none;
+}
+
+.btn-gradient {
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, rgb(230, 36, 1), #face3e) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+
+.btn-gradient {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  padding: 0.5rem 1rem;
+  width: 120px;
+  cursor: pointer;
 }
