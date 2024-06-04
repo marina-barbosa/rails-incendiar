@@ -16,7 +16,6 @@ describe "Usuário vê detalhes de um produto" do
     # Act
     visit root_path
     click_on "Isqueiro Jet Flame"
-
     # Assert
     expect(page).to have_css('img[src*="isqueiro-macarico.webp"]')
     expect(page).to have_content("Isqueiro Jet Flame")
@@ -25,8 +24,18 @@ describe "Usuário vê detalhes de um produto" do
     expect(page).to have_content("50")
     expect(page).to have_content("unidades disponíveis")
 
-    expect(page).to have_button("Add to Cart")
+    expect(page).to have_link("Add to Cart")
     expect(page).to have_link("Check Out")
+  end
+  it "e não vê botões Editar e Remover" do
+    # Arrange
+    logout
+    # Act
+    visit root_path
+    click_on "Isqueiro Jet Flame"
+    # Assert
+    expect(page).not_to have_content("Editar")
+    expect(page).not_to have_content("Remover")
   end
   it "e volta pra tela inicial" do
     # Arrange

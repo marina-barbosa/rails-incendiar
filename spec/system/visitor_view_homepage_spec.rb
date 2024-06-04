@@ -8,6 +8,7 @@ describe "Usuário visita tela inicial" do
     visit("/")
     # Assert
     expect(page).to have_content("Incendiar")
+    expect(page).not_to have_link("Cadastrar Produto")
   end
   it "e vê os isqueiros/produtos cadastrados" do
     # Arrange
@@ -34,7 +35,7 @@ describe "Usuário visita tela inicial" do
     expect(page).to have_content("Isqueiro Jet Flame")
     expect(page).to have_content("R$ 80,00")
 
-    expect(page).to have_button("Add to Cart")
+    expect(page).to have_link("Add to Cart")
     expect(page).not_to have_content("Nenhum produto cadastrado")
   end
   it "e não existem isqueiros/produtos cadastrados" do

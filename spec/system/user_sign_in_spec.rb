@@ -2,7 +2,14 @@ require "rails_helper"
 
 describe "Usuário se autentica" do
   before do
-    @user = User.create!(email: "admin@email.com", password: "123456", name: "Hortencia", cpf: "12345678900", phone: "13900009999", role: "admin")
+    @user = User.create!(
+      email: "admin@email.com",
+      password: "123456",
+      name: "Hortencia",
+      cpf: "12345678900",
+      phone: "13900009999",
+      role: "admin",
+    )
   end
   it "com sucesso" do
     # Arrange

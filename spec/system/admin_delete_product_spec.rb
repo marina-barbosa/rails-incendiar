@@ -2,6 +2,14 @@ require "rails_helper"
 
 describe "Admin delete um produto" do
   before do
+    @user = User.create!(
+      email: "admin@email.com",
+      password: "123456",
+      name: "Hortencia",
+      cpf: "12345678900",
+      phone: "13900009999",
+      role: "admin",
+    )
     @product = Product.create!(
       name: "Isqueiro Jet Flame",
       price: 80.00,
@@ -18,9 +26,17 @@ describe "Admin delete um produto" do
     )
     second_product.image.attach(io: File.open(Rails.root.join("spec", "support", "isqueiro-plasma-duplo-arco.png")), filename: "isqueiro-plasma-duplo-arco.png")
   end
+  it "se estiver autenticado" do
+    # Arrange
+    logout
+    # Act
+    visit edit_product_path(@product.id)
+    # Assert
+    expect(page).not_to have_button "Remover"
+  end
   it "com sucesso" do
     # Arrange
-
+    login_as(@user)
     # Act
     visit root_path
     click_on "Isqueiro Jet Flame"
@@ -33,7 +49,7 @@ describe "Admin delete um produto" do
   end
   it "e não apaga outros produtos" do
     # Arrange
-
+    login_as(@user)
     # Act
     visit root_path
     click_on "Isqueiro Jet Flame"

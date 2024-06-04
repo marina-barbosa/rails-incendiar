@@ -1,9 +1,11 @@
 <section class="product-index">
   <h2>Product List</h2>
 
-  <div>
-    <%= link_to 'Cadastrar Produto', new_product_path %>
-  </div>
+  <% if user_signed_in? && current_user.admin? %>
+    <div>
+      <%= link_to 'Cadastrar Produto', new_product_path %>
+    </div>
+  <% end %>
 
   <% @products.each do |p| %>
     <div class="card">
@@ -14,8 +16,7 @@
       <% end %>
       <p><%= link_to p.name, p %></p>
       <p>R$ <%= number_with_precision(p.price, precision: 2) %></p>
-      <%# <%= button_to 'Add to Cart', add_to_cart, class: 'btn-action' %>
-      <%= button_to 'Add to Cart', class: 'btn-action-func' %>
+      <%= link_to 'Add to Cart', class: 'btn-action-func' %>
     </div>
   <% end %>
 

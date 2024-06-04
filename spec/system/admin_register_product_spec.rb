@@ -1,13 +1,33 @@
 require "rails_helper"
 
 describe "Admin cadastra um produto" do
+  before do
+    @user = User.create!(
+      email: "admin@email.com",
+      password: "123456",
+      name: "Hortencia",
+      cpf: "12345678900",
+      phone: "13900009999",
+      role: "admin",
+    )
+  end
+  it "se estiver autenticado" do
+    # Arrange
+    logout
+    # Act
+    visit new_product_path
+    # Assert
+    expect(current_path).to eq new_user_session_path
+    expect(page).to have_content("Para continuar, faça login ou registre-se.")
+  end
   it "a partir da tela inicial e vê o formulario" do
     # Arrange
-
+    login_as(@user)
     # Act
     visit root_path
     click_on "Cadastrar Produto"
     # Assert
+    expect(current_path).to eq new_product_path
     expect(page).to have_field("Nome")
     expect(page).to have_field("Preço")
     expect(page).to have_field("Descrição")
@@ -18,7 +38,7 @@ describe "Admin cadastra um produto" do
 
   it "com sucesso" do
     # Arrange
-
+    login_as(@user)
     # Act
     visit root_path
     click_on "Cadastrar Produto"
@@ -40,7 +60,7 @@ describe "Admin cadastra um produto" do
 
   it "com dados incompletos" do
     # Arrange
-
+    login_as(@user)
     # Act
     visit root_path
     click_on "Cadastrar Produto"
