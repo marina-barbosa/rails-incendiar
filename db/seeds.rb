@@ -5,6 +5,15 @@ User.create!(
   name: "Hortencia",
   cpf: "12345678900",
   phone: "13900009999",
+  role: "admin",
+)
+# Cria conta customer
+User.create!(
+  email: "isaac@email.com",
+  password: "123456",
+  name: "Isaac",
+  cpf: "22345678900",
+  phone: "13900008888",
   role: "customer",
 )
 
