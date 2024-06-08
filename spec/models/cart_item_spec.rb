@@ -4,9 +4,9 @@ RSpec.describe CartItem, type: :model do
   describe "#valid?" do
     before do
       @user = User.create!(
-        email: "admin@email.com",
+        email: "isaac@email.com",
         password: "123456",
-        name: "Hortencia",
+        name: "Isaac Smith",
         cpf: "12345678900",
         phone: "13900009999",
       )
