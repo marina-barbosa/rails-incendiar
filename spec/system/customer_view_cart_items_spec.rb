@@ -28,7 +28,7 @@ describe "Cliente visita seu carrinho" do
     # Arrange
     logout
     # Act
-    visit cart_item_path
+    visit cart_items_path
     # Assert
     expect(current_path).to eq new_user_session_path
     expect(page).to have_content("Para continuar, faça login ou registre-se.")
@@ -40,9 +40,10 @@ describe "Cliente visita seu carrinho" do
     visit root_path
     click_on "Cart"
     # Assert
+    expect(page).to have_selector("table th", text: "Quantidade")
     expect(page).to have_content "Isqueiro Clássico Zippo"
-    expect(page).to have_content "Quantidade: 1"
+    expect(page).to have_selector("table td", text: "1")
     expect(page).to have_content "Isqueiro Bic"
-    expect(page).to have_content "Quantidade: 2"
+    expect(page).to have_selector("table td", text: "2")
   end
 end

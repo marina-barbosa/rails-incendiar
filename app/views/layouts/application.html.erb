@@ -24,13 +24,14 @@
             <% end %>
           </li>
           <li>Pesquisar</li>
-          <li>
-            <% if user_signed_in? %>
-              <%= button_to "Sair", destroy_user_session_path, class: "btn-gradient", method: :delete %>
-            <% else %>
-              <%= link_to "Entrar", new_user_session_path %>
-            <% end %>
-          </li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to "Cart", cart_items_path %></li>
+            <li><%= button_to "Sair", destroy_user_session_path, class: "btn-gradient", method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Entrar", new_user_session_path %></li>
+          <% end %>
+
           <li><%= link_to "Criar uma conta", new_user_registration_path %></li>
         </ul>
       </nav>
