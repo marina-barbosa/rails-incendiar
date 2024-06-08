@@ -3,6 +3,7 @@ pt-BR:
     models:
       product: Produto
       user: Usuário
+      address: Endereço
     attributes:
       product:
         name: "Nome"
@@ -13,4 +14,12 @@ pt-BR:
       user:
         phone: "Telefone"
         name: "Nome"
+      address:
+        street: "Rua"
+        number: "Número"
+        city: "Cidade"
+        state: "Estado"
+        postal_code: "CEP"
+        country: "Pais"
+        complement: "Complemento"
 

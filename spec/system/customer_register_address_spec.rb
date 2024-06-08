@@ -60,6 +60,7 @@ describe "Cliente cadastra um endereço" do
     click_on "Salvar"
     # Assert
     expect(current_path).to eq(user_path(@user))
+    expect(page).to have_content("Endereço cadastrado com sucesso!")
     expect(page).to have_content("Av. Paulista")
     expect(page).to have_content("123")
     expect(page).to have_content("Bela Vista")

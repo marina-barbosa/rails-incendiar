@@ -1,0 +1,57 @@
+<h1>Novo Endereço</h1>
+
+<% if @address.errors.any? %>
+  <ul>
+    <% @address.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @address) do |form| %>
+  <div class="field">
+    <%= form.label :street, "Rua" %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number, "Número" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neighborhood, "Bairro" %>
+    <%= form.text_field :neighborhood %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city, "Cidade" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state, "Estado" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code, "CEP" %>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country, "País" %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complement, "Complemento" %>
+    <%= form.text_field :complement %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Salvar" %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', addresses_path, class: "btn btn-secondary" %>

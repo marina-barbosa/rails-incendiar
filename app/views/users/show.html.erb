@@ -30,5 +30,57 @@
   <p><%= @user.updated_at.strftime("%d/%m/%Y %H:%M") %></p>
 </div>
 
-<%= link_to 'Editar Perfil', edit_user_registration_path, class: "btn btn-primary" %>
-<%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+<div><%= link_to 'Editar Perfil', edit_user_registration_path, class: "btn btn-primary" %></div>
+<div><%= link_to 'Novo endereço', new_address_path, class: "btn btn-primary" %></div>
+
+<% if @addresses.length < 1 %>
+  <p>Nenhum endereço cadastrado</p>
+<% else %>
+  <% @addresses.each do |a| %>
+    <h1>Detalhes do Endereço</h1>
+
+    <div>
+      <strong>Rua:</strong>
+      <p><%= a.street %></p>
+    </div>
+
+    <div>
+      <strong>Número:</strong>
+      <p><%= a.number %></p>
+    </div>
+
+    <div>
+      <strong>Bairro:</strong>
+      <p><%= a.neighborhood %></p>
+    </div>
+
+    <div>
+      <strong>Cidade:</strong>
+      <p><%= a.city %></p>
+    </div>
+
+    <div>
+      <strong>Estado:</strong>
+      <p><%= a.state %></p>
+    </div>
+
+    <div>
+      <strong>CEP:</strong>
+      <p><%= a.postal_code %></p>
+    </div>
+
+    <div>
+      <strong>País:</strong>
+      <p><%= a.country %></p>
+    </div>
+
+    <div>
+      <strong>Complemento:</strong>
+      <p><%= a.complement.present? ? a.complement : "Nenhum complemento" %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<div>
+  <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+</div>
