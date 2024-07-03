@@ -8,6 +8,7 @@ describe "Usuário visita tela inicial" do
     visit("/")
     # Assert
     expect(page).to have_content("Incendiar")
+    expect(page).to have_link("Incendiar", href: root_path)
     expect(page).not_to have_link("Cadastrar Produto")
   end
   it "e vê os isqueiros/produtos cadastrados" do

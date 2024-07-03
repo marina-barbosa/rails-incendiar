@@ -153,5 +153,46 @@ RSpec.describe Address, type: :model do
       # Assert
       expect(result).to eq true
     end
+
+    describe "#full_address" do
+      it "exibe o endereço completo com complemento" do
+        # Arrange
+        address = Address.new(
+          street: "Avenida Paulista",
+          number: "123",
+          neighborhood: "Centro",
+          city: "São Paulo",
+          state: "SP",
+          postal_code: "12345-678",
+          country: "Brasil",
+          complement: "Apto 101",
+          user: User.new,
+        )
+        # Act
+        result = address.full_address()
+        # Assert
+        expect(result).to eq("Avenida Paulista, 123, Apto 101, Centro, São Paulo - SP, 12345-678 - Brasil
+        ")
+      end
+
+      it "exibe o endereço completo sem complemento" do
+        # Arrange
+        address = Address.new(
+          street: "Avenida Paulista",
+          number: "123",
+          neighborhood: "Centro",
+          city: "São Paulo",
+          state: "SP",
+          postal_code: "12345-678",
+          country: "Brasil",
+          user: User.new,
+        )
+        # Act
+        result = address.full_address()
+        # Assert
+        expect(result).to eq("Avenida Paulista, 123, Centro, São Paulo - SP, 12345-678 - Brasil
+        ")
+      end
+    end
   end
 end

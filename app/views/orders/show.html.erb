@@ -1,0 +1,5 @@
+<h1>Show Pedido</h1>
+
+<p>Data Prevista de Entrega</p>
+<p><%= I18n.localize(@order.estimated_delivery_date) %></p>
+<p><%= @order.shipping_address.full_address %></p>

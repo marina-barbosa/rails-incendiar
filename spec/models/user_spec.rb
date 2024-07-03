@@ -89,4 +89,14 @@ RSpec.describe User, type: :model do
       expect(result).to eq false
     end
   end
+  describe "#description" do
+    it "exibe o nome e email" do
+      # Arrange
+      user = User.new(name: "Isaac", email: "isaac@email.com")
+      # Act
+      result = user.description
+      # Assert
+      expect(result).to eq "Isaac <isaac@email.com>"
+    end
+  end
 end

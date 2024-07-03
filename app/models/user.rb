@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+
+  def description
+    "#{name} - <#{email}>"
+  end
 end

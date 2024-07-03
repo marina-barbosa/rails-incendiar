@@ -1,0 +1,16 @@
+<h1>Registrar Pedido</h1>
+
+<%= form_with(model: @order) do |f| %>
+  <div>
+    <%= f.label :shipping_address %>
+    <%= f.collection_select :shipping_address, @addresses, :id, :full_address %>
+  </div>
+  <div>
+    <%= f.label :shipping_phone %>
+    <%= f.text_field :shipping_phone %>
+  </div>
+  <div>
+    <%= f.label :estimated_delivery_date %>
+    <%= f.date_field :estimated_delivery_date %>
+  </div>
+<% end %>
